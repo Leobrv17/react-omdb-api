@@ -1,0 +1,120 @@
+:root {
+  --bg: #0b0f14;
+  --panel: #121821;
+  --panel-2: #1a2230;
+  --text: #e7eef7;
+  --muted: #9db0c7;
+  --brand: #5aa6ff;
+  --brand-2: #2c7efc;
+  --danger: #ff5a76;
+  --ring: 0 0 0 3px rgba(90, 166, 255, 0.25);
+}
+
+* { box-sizing: border-box; }
+html, body, #root { height: 100%; }
+body {
+  margin: 0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+  background: linear-gradient(180deg, var(--bg), #0a0f16 30%, #0a0f16 100%);
+  color: var(--text);
+}
+
+a { color: inherit; text-decoration: none; }
+button, input, select { font: inherit; }
+input, select {
+  background: var(--panel);
+  border: 1px solid #253246;
+  color: var(--text);
+  padding: 0.6rem 0.8rem;
+  border-radius: 10px;
+  outline: none;
+}
+input:focus, select:focus { box-shadow: var(--ring); border-color: var(--brand); }
+
+.container { max-width: 1100px; margin: 0 auto; padding: 1.25rem; }
+
+.header {
+  position: sticky; top: 0; z-index: 10;
+  backdrop-filter: blur(8px);
+  background: rgba(11,15,20,0.6);
+  border-bottom: 1px solid #182132;
+}
+.nav {
+  display: flex; gap: 1rem; align-items: center; justify-content: space-between;
+  padding: 0.75rem 1.25rem;
+}
+.brand { font-weight: 800; letter-spacing: .2px; }
+.brand b { color: var(--brand); }
+.nav a { opacity: .85; }
+.nav a.active { color: var(--brand); opacity: 1; }
+
+.grid {
+  display: grid; gap: 1rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+@media (min-width: 780px) {
+  .grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+
+.card {
+  background: var(--panel);
+  border: 1px solid #1e2a3d;
+  border-radius: 14px;
+  overflow: hidden;
+  display: flex; flex-direction: column;
+  transition: transform .15s ease, box-shadow .15s ease, border-color .2s ease;
+}
+.card:hover { transform: translateY(-2px); border-color: #2a3b57; }
+
+.poster {
+  aspect-ratio: 2/3; width: 100%; object-fit: cover; background: #0d131c;
+}
+.card-body { padding: .75rem .75rem 1rem; display: grid; gap: .35rem; }
+.title { font-weight: 700; line-height: 1.2; min-height: 2.2em; }
+.meta { font-size: .85rem; color: var(--muted); display: flex; gap: .5rem; align-items: center; }
+
+.row { display: flex; flex-wrap: wrap; gap: .75rem; align-items: center; }
+.row.right { justify-content: flex-end; }
+
+.toolbar {
+  background: var(--panel-2);
+  border: 1px solid #1f2a3f;
+  border-radius: 14px;
+  padding: .75rem;
+  display: grid; gap: .75rem;
+}
+@media (min-width: 780px) {
+  .toolbar { grid-template-columns: 1fr auto auto auto; align-items: center; }
+}
+
+.btn {
+  padding: .55rem .8rem; border-radius: 10px; border: 1px solid #22304a;
+  background: #142033; color: var(--text);
+  cursor: pointer; transition: background .15s ease, border-color .15s ease, transform .05s ease;
+}
+.btn:hover { background: #18253b; }
+.btn:active { transform: translateY(1px); }
+.btn.primary { background: linear-gradient(180deg, var(--brand), var(--brand-2)); border-color: #2d66c4; }
+.btn.ghost { background: transparent; border-color: #26354f; }
+.btn.danger { background: linear-gradient(180deg, #ff7a90, var(--danger)); border-color: #d65369; }
+
+.kbd {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono";
+  background: #0c1320; border: 1px solid #20304b; padding: 0 .4rem; border-radius: 6px;
+}
+
+.pager { display: flex; justify-content: center; gap: .5rem; margin: 1.25rem 0; }
+.badge { font-size: .75rem; padding: .15rem .45rem; border: 1px solid #294160; border-radius: 6px; color: var(--muted); }
+
+.empty {
+  border: 1px dashed #25344e;
+  background: #0e1522;
+  color: var(--muted);
+  border-radius: 14px;
+  padding: 2rem;
+  text-align: center;
+}
+
+.footer {
+  opacity: .75; font-size: .85rem; padding: 2rem 0; border-top: 1px solid #1b2538; margin-top: 2rem;
+}
