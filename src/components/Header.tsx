@@ -1,4 +1,5 @@
 import { NavLink } from "react-router-dom";
+import ThemeToggle from "./ThemeToggle";
 
 export default function Header() {
     return (
@@ -11,6 +12,7 @@ export default function Header() {
                     <NavLink to="/" className={({isActive}) => isActive ? "active" : undefined}>Recherche</NavLink>
                     <NavLink to="/favorites" className={({isActive}) => isActive ? "active" : undefined}>Favoris</NavLink>
                     <a href="https://www.omdbapi.com/" target="_blank" rel="noreferrer" className="badge">OMDb API</a>
+                    <ThemeToggle />
                 </div>
             </nav>
         </header>
